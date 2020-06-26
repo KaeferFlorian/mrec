@@ -6,7 +6,8 @@ Python package to reconstruct masses of galaxy clusters by making use of the sel
 
 Illustrative flow chart to reconstruct the galaxy cluster mass using an MCMC posterior sampling technique with a Poisson likelihood to compare the measured aperture photon counts to the β-model predictions:
 
-![Flow chart](./flowchart.pdf)
+![Flow chart](./flowchart.png)
+
 
 ## Requirements
 
