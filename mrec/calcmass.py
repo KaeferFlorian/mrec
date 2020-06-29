@@ -3,6 +3,7 @@
 import numpy as np
 import os
 import emcee
+import math
 
 from scipy.integrate import quad
 
@@ -94,7 +95,7 @@ class CalcMass:
             ext = int(finput.split('[')[-1].strip(']'))
             finput = finput.split('[')[0]
         else:
-            print('No extension number provided, it is set to 0')
+            #print('No extension number provided. It is set to 0')
             ext = 0
 
         if not os.path.isfile(finput):
@@ -265,9 +266,9 @@ class CalcMass:
         # calculate total observed and model counts
         modelCnts = np.sum(modelCnts1D)
         obsCnts = np.sum(obsCnts1D)
-        obsCntsFac = np.float(np.math.factorial(obsCnts))
+        lnobsCntsFac = math.lgamma(obsCnts+1)
 
-        return np.log(modelCnts)*obsCnts - modelCnts - np.log(obsCntsFac)
+        return np.log(modelCnts)*obsCnts - modelCnts - lnobsCntsFac
 
 
     def lnprior(self, theta):    
