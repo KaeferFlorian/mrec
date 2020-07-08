@@ -163,7 +163,7 @@ class CalcMass:
             [iRa,iDec] for iRa in range(imgShape[1]) for iDec in range(imgShape[0])
             ])
         
-        raDec = self.imgWcs.all_pix2world(iRaDec[:,0], iRaDec[:,1], 1, ra_dec_order=True)
+        raDec = self.imgWcs.all_pix2world(iRaDec[:,0], iRaDec[:,1], 0, ra_dec_order=True)
         pixSky = SkyCoord(raDec[0], raDec[1], unit='deg', frame='fk5')
         pixSep = self.cluSky.separation(pixSky).arcminute
         self.pixSep = pixSep.reshape(np.shape(self.imgData))
